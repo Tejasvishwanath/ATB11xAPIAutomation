@@ -1,21 +1,35 @@
-package com.thetestingacademy;
+package TestNG_AllureReport;
 
 import io.restassured.RestAssured;
 import org.testng.annotations.Test;
 
-import java.util.Scanner;
+public class Example_4 {
+    String pincode ;
 
-public class Example_3 {
     @Test
-    public static void tc1() {
-
-       String pincode= "560015";
+    public void testCase1()
+    {
+         pincode= "560015";
         RestAssured.given()
                 .baseUri("https://api.zippopotam.us")
                 .basePath("IN/"+pincode)
                 .when().get()
                 .then().log().all().statusCode(200);
-         pincode= "@";
+    }
+    @Test
+    public void testCase2()
+    {
+        pincode= "@";
+        RestAssured.given()
+                .baseUri("https://api.zippopotam.us")
+                .basePath("IN/"+pincode)
+                .when().get()
+                .then().log().all().statusCode(200);
+    }
+    @Test
+    public void testCase3()
+    {
+         pincode= "  ";
         RestAssured.given()
                 .baseUri("https://api.zippopotam.us")
                 .basePath("IN/"+pincode)
